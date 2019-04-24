@@ -12,7 +12,7 @@ namespace CoreCourse.MvcForms.Controllers
         public IActionResult Index()
         {
             var model = new SimpleFormVm();
-            model.RememberMe = true;
+            model.RememberMe = true;            
             return View(model);
         }
 
@@ -22,7 +22,7 @@ namespace CoreCourse.MvcForms.Controllers
             var submitVm = new SimpleFormSubmitVm
             {
                 Data = model,
-                Method = "GET"
+                Method = Request.Method
             };
             return View("Submit", submitVm);
         }
@@ -33,7 +33,7 @@ namespace CoreCourse.MvcForms.Controllers
             var submitVm = new SimpleFormSubmitVm
             {
                 Data = model,
-                Method = "POST"
+                Method = Request.Method
             };
             return View("Submit", submitVm);
         }
